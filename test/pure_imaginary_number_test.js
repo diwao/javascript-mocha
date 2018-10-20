@@ -58,7 +58,6 @@ describe('純虚数', () => {
   it('虚部が同一の値を持つ純虚数同士を同一であるとみなす', () =>{
     const sut1 = new PureImaginaryNumber(1);
     const sut2 = new PureImaginaryNumber(1);
-    assert(sut1.isEqualTo(sut2));
+    assert(sut1.isEqualTo(sut2) === true);
   });
-
 });
