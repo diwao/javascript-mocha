@@ -1,24 +1,24 @@
 const assert = require('assert');
 
-const PureImaginaryNumber = require('../lib/PureImaginaryNumber');
+const PurelyImaginaryNumber = require('../lib/PurelyImaginaryNumber');
 
 describe('純虚数', () => {
 
   describe('虚部の要件', () => {
     it('虚部が0である場合はエラーとする', () => {
       assert.throws(() => {
-        new PureImaginaryNumber(0);
+        new PurelyImaginaryNumber(0);
       }, /虚部に0は指定できません/);
     });
     it('虚部がnumber型でない場合はエラーとする', () => {
       assert.throws(() => {
-        new PureImaginaryNumber('hoge');
+        new PurelyImaginaryNumber('hoge');
       }, TypeError);
     });
 
     it('虚部が整数でない場合はエラーとする', () => {
       assert.throws(() => {
-        new PureImaginaryNumber(3.5);
+        new PurelyImaginaryNumber(3.5);
       }, Error);
     });
   });
@@ -26,7 +26,7 @@ describe('純虚数', () => {
   context('虚部 に 4 を与えて 純虚数 を生成した場合', () => {
     let sut;
     beforeEach(() => {
-      sut = new PureImaginaryNumber(4);
+      sut = new PurelyImaginaryNumber(4);
     });
     it('文字列表現は"4i"', () => {
       assert(sut.toString() === '4i');
@@ -36,7 +36,7 @@ describe('純虚数', () => {
   context('虚部 に -3 を与えて 純虚数 を生成した場合', () => {
     let sut;
     beforeEach(() => {
-      sut = new PureImaginaryNumber(-3);
+      sut = new PurelyImaginaryNumber(-3);
     });
     it('文字列表現は"-3i"', () => {
       assert(sut.toString() === '-3i');
@@ -45,25 +45,25 @@ describe('純虚数', () => {
 
   context('虚部が 1 および -1 である場合', () => {
     it('虚部が1の場合に文字列"i"を返す', () => {
-      const sut = new PureImaginaryNumber(1);
+      const sut = new PurelyImaginaryNumber(1);
       assert(sut.toString() === 'i');
     });
     it('虚部が-1の場合に文字列"-i"を返す', () => {
-      const sut = new PureImaginaryNumber(-1);
+      const sut = new PurelyImaginaryNumber(-1);
       assert(sut.toString() === '-i');
     });
   });
 
 
   it('虚部が同一の値を持つ純虚数同士を同一であるとみなす', () =>{
-    const sut1 = new PureImaginaryNumber(1);
-    const sut2 = new PureImaginaryNumber(1);
+    const sut1 = new PurelyImaginaryNumber(1);
+    const sut2 = new PurelyImaginaryNumber(1);
     assert(sut1.isEqualTo(sut2) === true);
   });
 
   it('虚部が異なる値を持つ純虚数同士を同一でないとみなす', () => {
-    const sut1 = new PureImaginaryNumber(1);
-    const sut2 = new PureImaginaryNumber(3);
+    const sut1 = new PurelyImaginaryNumber(1);
+    const sut2 = new PurelyImaginaryNumber(3);
     assert(sut1.isEqualTo(sut2) === false);
   });
 });
