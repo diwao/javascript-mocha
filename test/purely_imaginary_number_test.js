@@ -51,11 +51,14 @@ describe('純虚数', () => {
     });
   });
 
-  context('虚部が 1 および -1 である場合', () => {
+  context('虚部が 1 である場合', () => {
     it('虚部が1の場合に文字列"i"を返す', () => {
       const sut = new PurelyImaginaryNumber(1);
       assert(sut.toString() === 'i');
     });
+  });
+
+  context('虚部が -1 である場合', () => {
     it('虚部が-1の場合に文字列"-i"を返す', () => {
       const sut = new PurelyImaginaryNumber(-1);
       assert(sut.toString() === '-i');
