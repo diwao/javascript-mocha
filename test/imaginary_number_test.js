@@ -22,6 +22,25 @@ describe('実部と虚部を与えて虚数を生成する', () => {
     });
   });
 
+  describe('虚部の要件', () => {
+    it('虚部が0である場合はエラーとする', () => {
+      assert.throws(() => {
+        new ImaginaryNumber(3, 0);
+      }, /虚部に0は指定できません/);
+    });
+    it('虚部がnumber型でない場合はエラーとする', () => {
+      assert.throws(() => {
+        new ImaginaryNumber(3 ,'hoge');
+      }, TypeError);
+    });
+
+    it('虚部が整数でない場合はエラーとする', () => {
+      assert.throws(() => {
+        new ImaginaryNumber(3, 3.5);
+      }, Error);
+    });
+  });
+
   context('実部に4、虚部に2を与えた場合', () => {
     it('文字列表現は"4 + 2i"', () => {
       const sut = new ImaginaryNumber(4, 2);
