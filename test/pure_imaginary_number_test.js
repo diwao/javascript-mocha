@@ -15,4 +15,12 @@ describe('純虚数', () => {
     });
   });
 
+  context('虚部 に -3 を与えて 純虚数 を生成した場合', () => {
+    it('文字列表現は"-3i"', () => {
+      const sut = new PureImaginaryNumber(-3);
+      assert(sut.toString() === '-3i');
+    });
+  });
+
+
 });
