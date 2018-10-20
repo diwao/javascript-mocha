@@ -13,7 +13,7 @@ describe('純虚数', () => {
     it('虚部がnumber型でない場合はエラーとする', () => {
       assert.throws(() => {
         new PureImaginaryNumber('hoge');
-      });
+      }, TypeError);
     });
   });
 
