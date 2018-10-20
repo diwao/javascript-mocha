@@ -62,16 +62,17 @@ describe('純虚数', () => {
     });
   });
 
-
-  it('虚部が同一の値を持つ純虚数同士を同一であるとみなす', () =>{
-    const sut1 = new PurelyImaginaryNumber(1);
-    const sut2 = new PurelyImaginaryNumber(1);
-    assert(sut1.isEqualTo(sut2) === true);
+  describe('同一性の判定', () => {
+    it('虚部が同一の値を持つ純虚数同士を同一であるとみなす', () =>{
+      const sut1 = new PurelyImaginaryNumber(1);
+      const sut2 = new PurelyImaginaryNumber(1);
+      assert(sut1.isEqualTo(sut2) === true);
+    });
+    it('虚部が異なる値を持つ純虚数同士を同一でないとみなす', () => {
+      const sut1 = new PurelyImaginaryNumber(1);
+      const sut2 = new PurelyImaginaryNumber(3);
+      assert(sut1.isEqualTo(sut2) === false);
+    });
   });
 
-  it('虚部が異なる値を持つ純虚数同士を同一でないとみなす', () => {
-    const sut1 = new PurelyImaginaryNumber(1);
-    const sut2 = new PurelyImaginaryNumber(3);
-    assert(sut1.isEqualTo(sut2) === false);
-  });
 });
