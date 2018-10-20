@@ -8,9 +8,11 @@ describe('純虚数', () => {
     assert(sut);
   });
 
-  it('生成した純虚数から 文字列表記 (notation) を取得する', () => {
-    const sut = new PureImaginaryNumber(4);
-    assert(sut.toString() === '4i');
+  context('虚部 に 4 を与えて 純虚数 を生成した場合', () => {
+    it('文字列表現は"4i"', () => {
+      const sut = new PureImaginaryNumber(4);
+      assert(sut.toString() === '4i');
+    });
   });
 
 });
