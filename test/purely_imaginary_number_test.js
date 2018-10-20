@@ -31,6 +31,10 @@ describe('純虚数', () => {
     it('文字列表現は"4i"', () => {
       assert(sut.toString() === '4i');
     });
+    it('共役は純虚数-4i', () => {
+      const conjugate = sut.getConjugate();
+      assert(conjugate.isEqualTo(new PurelyImaginaryNumber(-4)));
+    });
   });
 
   context('虚部 に -3 を与えて 純虚数 を生成した場合', () => {
