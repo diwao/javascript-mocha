@@ -7,4 +7,10 @@ describe('純虚数', () => {
     const sut = new PureImaginaryNumber(4);
     assert(sut);
   });
+
+  it('生成した純虚数から 文字列表記 (notation) を取得する', () => {
+    const sut = new PureImaginaryNumber(4);
+    assert(sut.toString() === '4i');
+  });
+
 });
