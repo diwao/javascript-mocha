@@ -73,9 +73,11 @@ describe('純虚数', () => {
       const sut2 = new PurelyImaginaryNumber(3);
       assert(sut1.isEqualTo(sut2) === false);
     });
-    it('比較対象が PurelyImaginaryNumber 型でない場合は false を返す', () => {
+    describe('比較対象が PurelyImaginaryNumber 型でない場合は false を返す', () => {
       const sut = new PurelyImaginaryNumber(4);
-      assert(sut.isEqualTo(null) === false);
+      it('nullと比較', () => assert(sut.isEqualTo(null) === false));
+      it('numberと比較', () => assert(sut.isEqualTo(999) === false));
+      it('stringと比較', () => assert(sut.isEqualTo('hoge') === false));
     });
   });
 
