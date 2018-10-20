@@ -3,6 +3,25 @@ const assert = require('assert');
 const ImaginaryNumber = require('../lib/ImaginaryNumber');
 
 describe('実部と虚部を与えて虚数を生成する', () => {
+  describe('実部の要件', () => {
+    it('実部が0である場合はエラーとする', () => {
+      assert.throws(() => {
+        new ImaginaryNumber(0, 3);
+      }, /実部に0は指定できません/);
+    });
+    it('実部がnumber型でない場合はエラーとする', () => {
+      assert.throws(() => {
+        new ImaginaryNumber('hoge' ,3);
+      }, TypeError);
+    });
+
+    it('実部が整数でない場合はエラーとする', () => {
+      assert.throws(() => {
+        new ImaginaryNumber(3.5, 3);
+      }, Error);
+    });
+  });
+
   context('実部に4、虚部に2を与えた場合', () => {
     it('文字列表現は"4 + 2i"', () => {
       const sut = new ImaginaryNumber(4, 2);
