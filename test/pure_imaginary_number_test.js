@@ -3,10 +3,6 @@ const assert = require('assert');
 const PureImaginaryNumber = require('../lib/PureImaginaryNumber');
 
 describe('純虚数', () => {
-  it('0ではない整数で生成できる', () => {
-    const sut = new PureImaginaryNumber(4);
-    assert(sut);
-  });
 
   context('虚部 に 4 を与えて 純虚数 を生成した場合', () => {
     let sut;
@@ -27,6 +23,5 @@ describe('純虚数', () => {
       assert(sut.toString() === '-3i');
     });
   });
-
 
 });
