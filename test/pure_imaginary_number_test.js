@@ -10,6 +10,11 @@ describe('純虚数', () => {
         new PureImaginaryNumber(0);
       }, /虚部に0は指定できません/);
     });
+    it('虚部がnumber型でない場合はエラーとする', () => {
+      assert.throws(() => {
+        new PureImaginaryNumber('hoge');
+      });
+    });
   });
 
   context('虚部 に 4 を与えて 純虚数 を生成した場合', () => {
