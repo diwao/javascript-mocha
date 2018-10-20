@@ -1,8 +1,6 @@
 const assert = require('assert');
 
-class PureImaginaryNumber {
-
-}
+const PureImaginaryNumber = require('../lib/PureImaginaryNumber');
 
 describe('純虚数', () => {
   it('0ではない整数で生成できる', () => {
