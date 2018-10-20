@@ -15,6 +15,12 @@ describe('純虚数', () => {
         new PureImaginaryNumber('hoge');
       }, TypeError);
     });
+
+    it('虚部が整数でない場合はエラーとする', () => {
+      assert.throws(() => {
+        new PureImaginaryNumber(3.5);
+      }, Error);
+    });
   });
 
   context('虚部 に 4 を与えて 純虚数 を生成した場合', () => {
